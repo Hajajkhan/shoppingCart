@@ -16,6 +16,8 @@ import {MatInputModule} from '@angular/material/input';
 import { DialogComponent } from './navbar/dialog/dialog.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { PaymentMethodComponent } from './navbar/dialog/payment-method/payment-method.component';
 
 
 @NgModule({
@@ -23,13 +25,14 @@ import {MatTableModule} from '@angular/material/table';
     AppComponent,
     NavbarComponent,
     HomePageComponent,
-    DialogComponent
+    DialogComponent,
+    PaymentMethodComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,FormsModule,MatTableModule,
     BrowserAnimationsModule,
-    MatDialogModule,MatToolbarModule,MatIconModule,MatInputModule,MatButtonModule,
+    MatDialogModule,MatToolbarModule,MatIconModule,MatInputModule,MatButtonModule,MatPaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
