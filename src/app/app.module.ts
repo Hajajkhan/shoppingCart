@@ -19,7 +19,6 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { SidebarComponent } from './home-page/sidebar/sidebar.component';
 import { MatListModule } from '@angular/material/list';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +40,7 @@ import { MatListModule } from '@angular/material/list';
     MatButtonModule,
     MatSidenavModule,
     MatListModule,
+ 
   ],
   providers: [],
   bootstrap: [AppComponent],
