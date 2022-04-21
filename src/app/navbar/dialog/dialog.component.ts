@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 
+
 export interface PeriodicElement {
   name: string;
   position: number;

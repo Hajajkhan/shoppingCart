@@ -1,20 +1,14 @@
-<mat-toolbar color="accent">
-    <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-    <mat-icon>menu</mat-icon>
-    </button> -->
-    <span>My App</span>
+<mat-toolbar style="background-color: #424242;" >
+    <span>Kifayat</span>
     <span class="example-spacer"></span>
-    <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-    <mat-icon>favorite</mat-icon>
-    </button> -->
     <div class="inputField">
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Search Product</mat-label>
-            <input matInput>
+            <input matInput title="search bar">
         </mat-form-field>
     </div>
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon"
-    (click)="openDialog()">
-    <mat-icon>add_shopping_cart</mat-icon>      
+    (click)="openDialog()" >
+    <mat-icon title="Cart">add_shopping_cart</mat-icon>     
 </button>
 </mat-toolbar>
