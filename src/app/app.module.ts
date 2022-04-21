@@ -10,35 +10,48 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatIconModule} from '@angular/material/icon';
-import {MatInputModule} from '@angular/material/input';
-import {MatStepperModule} from '@angular/material/stepper';
-import {MatSelectModule} from '@angular/material/select';
-
-import { DialogComponent } from './navbar/dialog/dialog.component';
-import {MatButtonModule} from '@angular/material/button';
-import {MatTableModule} from '@angular/material/table';
-import {MatPaginatorModule} from '@angular/material/paginator';
 import { PaymentMethodComponent } from './navbar/dialog/payment-method/payment-method.component';
-
-
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSelectModule } from '@angular/material/select';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { DialogComponent } from './navbar/dialog/dialog.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { SidebarComponent } from './home-page/sidebar/sidebar.component';
+import { MatListModule } from '@angular/material/list';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomePageComponent,
     DialogComponent,
-    PaymentMethodComponent
+    SidebarComponent,
+    PaymentMethodComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,FormsModule,MatTableModule,MatSelectModule,
-    BrowserAnimationsModule,MatStepperModule,ReactiveFormsModule,
-    MatDialogModule,MatToolbarModule,MatIconModule,MatInputModule,MatButtonModule,MatPaginatorModule,
+    AppRoutingModule,
+    FormsModule,
+    MatTableModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatListModule,
+    MatPaginatorModule,
+    ReactiveFormsModule,
+    MatStepperModule,
+    MatSelectModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
