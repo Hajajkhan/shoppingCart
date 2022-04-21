@@ -1,0 +1,149 @@
+<mat-stepper linear #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+        <div class="stepperOne">
+            <div class="head">
+                <h1>Contact Information</h1>
+            </div>
+            <div class="stepper">
+                <form [formGroup]="firstFormGroup">
+                    <ng-template matStepLabel>Contact Details</ng-template>
+                    <mat-form-field appearance="fill">
+                      <mat-label style="color:white">Full Name</mat-label>
+                      <input matInput formControlName="firstCtrl" placeholder="Last name, First name" required>
+                    </mat-form-field><br>
+                    <mat-form-field appearance="fill">
+                        <mat-label style="color:white">Email</mat-label>
+                        <input matInput formControlName="firstCtrl" placeholder="john@12gmail.com" required>
+                      </mat-form-field><br>
+                      <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Address</mat-label>
+                        <textarea matInput></textarea>
+                      </mat-form-field>
+                      <form class="example-form">
+                            <mat-form-field class="example-full-width" appearance="fill">
+                                <mat-label>Phone</mat-label>
+                                <span matPrefix>+92 &nbsp;</span>
+                                <input type="tel" matInput placeholder="555-555-1234">
+                                <mat-icon matSuffix>phone</mat-icon>
+                            </mat-form-field>
+                        </form><br>
+                        <mat-form-field class="example-full-width" appearance="fill">
+                            <mat-label>Comment</mat-label>
+                            <textarea matInput></textarea>
+                        </mat-form-field>
+                    <div>
+                      <button mat-button matStepperNext>Next</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+        <div class="stepperOne">
+            <div class="head">
+                <h1 >
+                    Shipping Information
+                </h1>
+            </div>
+            <div class="stepper">
+                <form [formGroup]="secondFormGroup">
+                    <ng-template matStepLabel>Shipping Information</ng-template>
+                    <mat-form-field appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="secondCtrl" placeholder="john@12gmail.com" 
+                    required>
+                    </mat-form-field><br>
+                    <mat-form-field appearance="fill">
+                        <mat-label>First Name</mat-label>
+                        <input matInput formControlName="secondCtrl" placeholder="Mr/Ms"
+                        required>
+                    </mat-form-field><br>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput formControlName="secondCtrl" placeholder="John"
+                        required>
+                    </mat-form-field><br>  
+                    <mat-form-field appearance="fill">
+                        <mat-label>Street Address</mat-label>
+                        <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+                        required>
+                    </mat-form-field><br>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Phone</mat-label>
+                        <span matPrefix>+92 &nbsp;</span>
+                        <input type="tel" matInput placeholder="555-555-1234">
+                        <mat-icon matSuffix>phone</mat-icon>
+                    </mat-form-field><br>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Postal Code</mat-label>
+                        <input type="tel" matInput placeholder="12345">
+                    </mat-form-field>           
+                    <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </mat-step>
+    <mat-step>
+        <div class="stepperOne">
+            <div class="head">
+                <h1 >
+                   Payment Method
+                </h1>
+            </div>
+            <div >
+                <mat-form-field appearance="fill">
+                    <mat-label>Select payment Method</mat-label>
+                    <mat-select [(ngModel)]="selected">
+                        <mat-option *ngFor="let method of methods" [value]="method" onchange="displaySelection()">
+                        {{method}}
+                        </mat-option>
+                    </mat-select><br>
+                </mat-form-field><br>
+                <div>
+                    <p  *ngIf="selectedstatement">You have Selected {{selected}}</p>
+                </div>
+            </div>
+            <div class="stepper"> 
+                <form [formGroup]="thirdFormGroup">
+                    <ng-template matStepLabel>Payment Method</ng-template>
+                    <mat-form-field appearance="fill">
+                    <mat-label>First Name</mat-label>
+                    <input matInput formControlName="thirdCtrl" placeholder="john">
+                    </mat-form-field><br>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput formControlName="thirdCtrl" placeholder="Smith"
+                        required>
+                    </mat-form-field><br>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Credit Card Number</mat-label>
+                        <input type="tel" matInput placeholder="0000-0000-0000-0000">
+                    </mat-form-field><br>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>CVC</mat-label>
+                        <input type="tel" matInput placeholder="***">
+                    </mat-form-field>           
+                    <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button (click)="stepper.reset()">Reset</button>
+                    <button mat-button matStepperNext>Continue To Payment</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </mat-step>
+    <mat-step>
+            <ng-template matStepLabel>Payment Review</ng-template>
+            <mat-form-field appearance="fill">
+            <mat-label>Your Billing Amount</mat-label>
+            <input matInput disabled="true" value="500">
+            </mat-form-field><br>
+            <div>
+                <button routerLink=""
+                mat-button matStepperNext>Pay Now</button>
+            </div>
+    </mat-step>
+  </mat-stepper>
