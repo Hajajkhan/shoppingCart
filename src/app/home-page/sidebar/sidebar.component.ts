@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SideBarData } from 'src/app/data.state';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-sidebar',
@@ -13,5 +14,4 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.array)
   }
-
 }
