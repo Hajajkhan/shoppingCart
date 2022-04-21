@@ -13,5 +13,8 @@
   .tolbar{
       position: fixed;
       top:0%
-     
+  }
+  mat-toolbar{
+      background-color: #424242;
+      position: fixed;
   }

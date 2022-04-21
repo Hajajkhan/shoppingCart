@@ -24,6 +24,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { SidebarComponent } from './home-page/sidebar/sidebar.component';
 import { MatListModule } from '@angular/material/list';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { kifayatDataReducer } from './home-page/kifayat store/kifayat.reducer';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +53,8 @@ import { MatListModule } from '@angular/material/list';
     ReactiveFormsModule,
     MatStepperModule,
     MatSelectModule,
+    StoreModule.forRoot({data:kifayatDataReducer}, {}),
+    EffectsModule.forRoot([]),
   ],
   providers: [],
   bootstrap: [AppComponent],
