@@ -9,7 +9,7 @@
                     <ng-template matStepLabel>Contact Details</ng-template>
                     <mat-form-field appearance="fill">
                       <mat-label style="color:white">Full Name</mat-label>
-                      <input matInput formControlName="firstCtrl" placeholder="Last name, First name" required>
+                      <input style="color: white;" matInput formControlName="firstCtrl" placeholder="Last name, First name" required>
                     </mat-form-field><br>
                     <mat-form-field appearance="fill">
                         <mat-label style="color:white">Email</mat-label>
@@ -94,7 +94,7 @@
                 </h1>
             </div>
             <div >
-                <mat-form-field appearance="fill">
+                <mat-form-field class="select" appearance="fill">
                     <mat-label>Select payment Method</mat-label>
                     <mat-select [(ngModel)]="selected">
                         <mat-option *ngFor="let method of methods" [value]="method" onchange="displaySelection()">

@@ -20,6 +20,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import {MatCardModule} from '@angular/material/card';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 
 import { NavbarComponent } from './mainpage/navbar/navbar.component';
@@ -27,6 +29,7 @@ import { MainpageComponent } from './mainpage/mainpage.component';
 import { NavbardialogComponent } from './mainpage/navbar/navbardialog/navbardialog.component';
 import { CartpaymentmethodComponent } from './mainpage/navbar/navbardialog/cartpaymentmethod/cartpaymentmethod.component';
 import { SidebarComponent } from './mainpage/sidebar/sidebar.component';
+
 
 
 @NgModule({
@@ -42,7 +45,7 @@ import { SidebarComponent } from './mainpage/sidebar/sidebar.component';
     BrowserModule,FormsModule,ReactiveFormsModule,
     MatPaginatorModule,
     MatSelectModule,
-    MatStepperModule,MatIconModule,MatToolbarModule,MatDialogModule,MatInputModule,MatButtonModule,MatTableModule,MatSidenavModule,MatListModule,
+    MatStepperModule,MatIconModule,MatToolbarModule,MatDialogModule,MatInputModule,MatButtonModule,MatTableModule,MatSidenavModule,MatListModule,MatCardModule,ScrollingModule,
     AppRoutingModule,
     StoreModule.forRoot({}, {}),
     BrowserAnimationsModule
