@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-
+import { FormGroup, FormBuilder,Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-payment-method',
-  templateUrl: './payment-method.component.html',
-  styleUrls: ['./payment-method.component.css']
+  selector: 'app-cartpaymentmethod',
+  templateUrl: './cartpaymentmethod.component.html',
+  styleUrls: ['./cartpaymentmethod.component.css']
 })
-export class PaymentMethodComponent implements OnInit {
+export class CartpaymentmethodComponent implements OnInit {
   selected:any;
   firstFormGroup!: FormGroup;
   secondFormGroup!: FormGroup;
@@ -32,5 +31,6 @@ export class PaymentMethodComponent implements OnInit {
  displaySelection(){
    this.selectedstatement = false;
  }
+
 
 }

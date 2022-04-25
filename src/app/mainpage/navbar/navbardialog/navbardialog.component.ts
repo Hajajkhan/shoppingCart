@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-
-
 export interface PeriodicElement {
   name: string;
   position: number;
@@ -22,22 +20,20 @@ export interface PeriodicElement {
 ];
 
 @Component({
-  selector: 'app-dialog',
-  templateUrl: './dialog.component.html',
-  styleUrls: ['./dialog.component.css']
+  selector: 'app-navbardialog',
+  templateUrl: './navbardialog.component.html',
+  styleUrls: ['./navbardialog.component.css']
 })
-export class DialogComponent implements OnInit {
+export class NavbardialogComponent implements OnInit {
+
+  
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
   
-  
-  
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
- 
-  
- 
 }

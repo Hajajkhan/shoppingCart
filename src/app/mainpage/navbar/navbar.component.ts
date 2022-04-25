@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogComponent } from './dialog/dialog.component';
+import { NavbardialogComponent } from './navbardialog/navbardialog.component';
+
 
 @Component({
   selector: 'app-navbar',
@@ -14,12 +15,11 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
   openDialog() {
-    const dialogRef = this.dialog.open(DialogComponent);
+    const dialogRef = this.dialog.open(NavbardialogComponent);
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
   }
+
 }
-
-
