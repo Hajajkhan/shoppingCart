@@ -1,8 +1,8 @@
 <div class="body">
     <div class="sidebar">
       <mat-selection-list #shoes [multiple]="false">
-        <mat-list-option *ngFor="let data of array" [value]="data">
-          {{ data.name }}
+        <mat-list-option *ngFor="let data of array" [value]="data.name">
+          {{ data.name}}
         </mat-list-option>
       </mat-selection-list>
     </div>
