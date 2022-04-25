@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomePageComponent } from './home-page/home-page.component';
-import { PaymentMethodComponent } from './navbar/dialog/payment-method/payment-method.component';
+import { CartpaymentmethodComponent } from './mainpage/navbar/navbardialog/cartpaymentmethod/cartpaymentmethod.component';
+import { MainpageComponent } from './mainpage/mainpage.component';
 
 const routes: Routes = [
-  {path:"", component:HomePageComponent},
-  {path:"paymentmethod", component:PaymentMethodComponent}
+  {path:"", component:MainpageComponent },
+  {path:"paymentMethod", component:CartpaymentmethodComponent}
 ];
 
 @NgModule({
