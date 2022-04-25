@@ -17,13 +17,25 @@
     padding: 10px;
     width: auto;
     margin-left: 10px;
+    background-color: #424242;
+    color: white;
 }
+mat-label{
+    color: white;
+}
+
+
 mat-stepper{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100%;
+    
+}
+.select{
+    background-color: #424242;
+    color: white;
 }
 .example-form {
     min-width: 150px;
