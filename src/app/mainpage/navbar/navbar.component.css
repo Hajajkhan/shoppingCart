@@ -11,12 +11,18 @@
     font-weight: 200;
     margin-right: 20px;
 }   
-  .tolbar{
-      position: fixed;
-      top:0%
-  }
+
   mat-toolbar{
     background-color: #424242;
     position: fixed;
     color:white;
   }
+  /* .menu{
+    display: none;
+  }
+  @media screen and (max-width: 450px) {
+    .menu{
+      display: block;
+    }
+    
+  } */
