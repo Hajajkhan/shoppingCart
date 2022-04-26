@@ -8,7 +8,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSelectModule } from '@angular/material/select';
 import { MatStepperModule } from '@angular/material/stepper';
@@ -20,8 +19,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import {MatCardModule} from '@angular/material/card';
-import {ScrollingModule} from '@angular/cdk/scrolling';
+import { MatCardModule } from '@angular/material/card';
 
 
 import { NavbarComponent } from './mainpage/navbar/navbar.component';
@@ -30,8 +28,6 @@ import { NavbardialogComponent } from './mainpage/navbar/navbardialog/navbardial
 import { CartpaymentmethodComponent } from './mainpage/navbar/navbardialog/cartpaymentmethod/cartpaymentmethod.component';
 import { SidebarComponent } from './mainpage/sidebar/sidebar.component';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,18 +35,29 @@ import { SidebarComponent } from './mainpage/sidebar/sidebar.component';
     MainpageComponent,
     NavbardialogComponent,
     CartpaymentmethodComponent,
-    SidebarComponent
+    SidebarComponent,
   ],
   imports: [
-    BrowserModule,FormsModule,ReactiveFormsModule,
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatPaginatorModule,
     MatSelectModule,
-    MatStepperModule,MatIconModule,MatToolbarModule,MatDialogModule,MatInputModule,MatButtonModule,MatTableModule,MatSidenavModule,MatListModule,MatCardModule,ScrollingModule,
+    MatStepperModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatDialogModule,
+    MatInputModule,
+    MatButtonModule,
+    MatTableModule,
+    MatSidenavModule,
+    MatListModule,
+    MatCardModule,
     AppRoutingModule,
     StoreModule.forRoot({}, {}),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

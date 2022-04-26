@@ -6,8 +6,6 @@
   }
   mat-form-field{
     width: 500px;
-    /* height: */
-    /* height: 20px; */
     font-weight: 200;
     margin-right: 20px;
 }   
@@ -17,12 +15,4 @@
     position: fixed;
     color:white;
   }
-  /* .menu{
-    display: none;
-  }
-  @media screen and (max-width: 450px) {
-    .menu{
-      display: block;
-    }
-    
-  } */
+  
