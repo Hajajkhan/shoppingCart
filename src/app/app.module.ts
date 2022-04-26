@@ -8,7 +8,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSelectModule } from '@angular/material/select';
 import { MatStepperModule } from '@angular/material/stepper';
@@ -20,8 +19,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import {MatCardModule} from '@angular/material/card';
-
+import { MatCardModule } from '@angular/material/card';
 import { NavbarComponent } from './mainpage/navbar/navbar.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { NavbardialogComponent } from './mainpage/navbar/navbardialog/navbardialog.component';
@@ -30,7 +28,6 @@ import { SidebarComponent } from './mainpage/sidebar/sidebar.component';
 import { EffectsModule } from '@ngrx/effects';
 import { ProductEffects } from './mainpage/sidebar/store/kifayat.effects';
 import { productReducer } from './mainpage/sidebar/store/kifayat.reducer';
-
 
 @NgModule({
   declarations: [
@@ -48,7 +45,6 @@ import { productReducer } from './mainpage/sidebar/store/kifayat.reducer';
     ReactiveFormsModule,
     MatPaginatorModule,
     MatSelectModule,
-
     MatStepperModule,
     MatIconModule,
     MatToolbarModule,
