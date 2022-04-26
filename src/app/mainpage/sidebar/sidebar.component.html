@@ -1,12 +1,12 @@
-<div class="body">
+<div class="main">
     <div class="sidebar">
       <mat-selection-list #shoes [multiple]="false">
-        <mat-list-option *ngFor="let data of array" [value]="data.name">
+        <mat-list-option class="list" *ngFor="let data of array" [value]="data.name">
           {{ data.name}}
         </mat-list-option>
       </mat-selection-list>
     </div>
-    <div class="right-body">
+    <div class="images-detail">
       <div class="outerbox">
         <div class="img1">
           <img
