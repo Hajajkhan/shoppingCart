@@ -1,0 +1,30 @@
+export const Categories=[
+{
+    id:"1",
+    name:"French"
+},
+{
+    id:"2",
+    name:"Italian"
+},
+{
+    id:"3",
+    name:"Irish"
+},
+{
+    id:"4",
+    name:"Animal"
+},
+{
+    id:"5",
+    name:"Flowers"
+},
+{
+    id:"6",
+    name:"Christmas"
+},
+{
+    id:"7",
+    name:"Valentine's"
+},
+]

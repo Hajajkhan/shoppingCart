@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import {  loadProducts} from './store/kifayat.actions';
+import { Categories } from './store/data.state';
 
 @Component({
   selector: 'app-sidebar',
@@ -6,48 +10,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
+  getId:any;
+  array:any[]= Categories;
+  arrayOfProducts:any[]=[];
 
-  array:any[]= [
-    {
-      name: 'departments',
-    },
-    {
-      name: 'categories',
-    },
-    {
-      name: 'attributes',
-    },
-    {
-      name: 'products',
-    },
-    {
-      name: 'customers',
-    },
-    {
-      name: 'orders',
-    },
-    {
-      name: 'shoppingcart',
-    },
-    {
-      name: 'tax',
-    },
-    {
-      name: 'shipping',
-    },
-    {
-      name: 'stripe',
-    },
-   
-    {
-      name: 'shoppingcart',
-    },
-  ];
+
+  $product:Observable<any>=this.store.select((state:any)=>{
+    return state.products.products;
+  })
+
   
 
-  constructor() { }
+  constructor(private store:Store) { }
 
   ngOnInit(): void {
+    this.store.dispatch(loadProducts());
+    this.$product.subscribe(data=>{
+      this.arrayOfProducts=data;
+      console.log("Data", this.arrayOfProducts);
+    })
+    console.log("##", this.$product)
   }
 
+  // onSelectCategory(){
+  //   this.store.dispatch(loadProducts());
+  // }
 }

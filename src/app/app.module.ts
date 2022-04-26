@@ -7,7 +7,7 @@ import { StoreModule } from '@ngrx/store';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSelectModule } from '@angular/material/select';
 import { MatStepperModule } from '@angular/material/stepper';
@@ -20,13 +20,14 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
-
-
 import { NavbarComponent } from './mainpage/navbar/navbar.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { NavbardialogComponent } from './mainpage/navbar/navbardialog/navbardialog.component';
 import { CartpaymentmethodComponent } from './mainpage/navbar/navbardialog/cartpaymentmethod/cartpaymentmethod.component';
 import { SidebarComponent } from './mainpage/sidebar/sidebar.component';
+import { EffectsModule } from '@ngrx/effects';
+import { ProductEffects } from './mainpage/sidebar/store/kifayat.effects';
+import { productReducer } from './mainpage/sidebar/store/kifayat.reducer';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { SidebarComponent } from './mainpage/sidebar/sidebar.component';
     SidebarComponent,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
@@ -54,8 +56,9 @@ import { SidebarComponent } from './mainpage/sidebar/sidebar.component';
     MatListModule,
     MatCardModule,
     AppRoutingModule,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({ products:productReducer}, {}),
     BrowserAnimationsModule,
+    EffectsModule.forRoot([ProductEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent],
