@@ -28,6 +28,7 @@ import { SidebarComponent } from './mainpage/sidebar/sidebar.component';
 import { EffectsModule } from '@ngrx/effects';
 import { ProductEffects } from './mainpage/sidebar/store/kifayat.effects';
 import { productReducer } from './mainpage/sidebar/store/kifayat.reducer';
+import { SnapshotDetailComponent } from './snapshot-detail/snapshot-detail.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { productReducer } from './mainpage/sidebar/store/kifayat.reducer';
     NavbardialogComponent,
     CartpaymentmethodComponent,
     SidebarComponent,
+    SnapshotDetailComponent,
   ],
   imports: [
     HttpClientModule,
@@ -56,7 +58,7 @@ import { productReducer } from './mainpage/sidebar/store/kifayat.reducer';
     MatListModule,
     MatCardModule,
     AppRoutingModule,
-    StoreModule.forRoot({ products:productReducer}, {}),
+    StoreModule.forRoot({ products: productReducer }, {}),
     BrowserAnimationsModule,
     EffectsModule.forRoot([ProductEffects]),
   ],
