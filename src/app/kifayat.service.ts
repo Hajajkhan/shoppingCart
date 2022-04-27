@@ -8,8 +8,15 @@ export class KifayatService {
   constructor(private http: HttpClient) {}
 
   getProductsData(data: any) {
-    return this.http.get(
-      'https://backendapi.turing.com/products/inCategory/' + data + '?limit=50'
-    );
+    if(data!=null){
+      return this.http.get(
+        'https://backendapi.turing.com/products/inCategory/' + data + '?limit=50'
+      );
+      }
+     else{
+        return this.http.get(
+          'https://backendapi.turing.com/products?limit=100'
+      );
+    }
   }
 }

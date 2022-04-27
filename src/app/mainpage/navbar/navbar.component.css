@@ -1,18 +1,12 @@
 .example-spacer {
     flex: 1 1 auto;
   }
-  .inputField{
-      margin-right: 20px;
-  }
   mat-form-field{
-    width: 500px;
-    font-weight: 200;
-    margin-right: 20px;
+    width: 300px;
+    font-weight: 100;
 }   
-
   mat-toolbar{
     background-color: #424242;
-    position: fixed;
+    position: sticky;
     color:white;
   }
-  

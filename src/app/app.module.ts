@@ -29,6 +29,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { ProductEffects } from './mainpage/sidebar/store/kifayat.effects';
 import { productReducer } from './mainpage/sidebar/store/kifayat.reducer';
 import { SnapshotDetailComponent } from './snapshot-detail/snapshot-detail.component';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { SnapshotDetailComponent } from './snapshot-detail/snapshot-detail.compo
   ],
   imports: [
     HttpClientModule,
+    ScrollingModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
