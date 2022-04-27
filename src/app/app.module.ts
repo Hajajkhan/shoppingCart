@@ -29,7 +29,9 @@ import { EffectsModule } from '@ngrx/effects';
 import { ProductEffects } from './mainpage/sidebar/store/kifayat.effects';
 import { productReducer } from './mainpage/sidebar/store/kifayat.reducer';
 import { SnapshotDetailComponent } from './snapshot-detail/snapshot-detail.component';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 @NgModule({
   declarations: [
@@ -43,6 +45,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
   ],
   imports: [
     HttpClientModule,
+    ScrollingModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
