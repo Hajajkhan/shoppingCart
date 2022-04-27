@@ -4,10 +4,14 @@
     <div class="inputField">
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Search Product</mat-label>
-        <input  matInput title="search bar" />
+        <input  matInput title="search bar" [(ngModel)]="searchProduct" name="input" #input="ngModel" (keyup)="searchdata()" 
+       >
+    
       </mat-form-field>
     </div>
+
     <span class="example-spacer"></span>
+
     
     <button
       mat-icon-button

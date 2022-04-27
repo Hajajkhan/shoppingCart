@@ -1,4 +1,6 @@
+
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+
 import { Store } from '@ngrx/store';
 import {
   FixedSizeVirtualScrollStrategy,
@@ -8,11 +10,13 @@ import { Observable } from 'rxjs';
 import { loadProducts } from './store/kifayat.actions';
 import { Categories } from './store/data.state';
 
+
 export class CustomVirtualScrollStrategy extends FixedSizeVirtualScrollStrategy {
   constructor() {
     super(50, 250, 500);
   }
 }
+
 
 @Component({
   selector: 'app-sidebar',
@@ -23,6 +27,8 @@ export class CustomVirtualScrollStrategy extends FixedSizeVirtualScrollStrategy 
   ],
 })
 export class SidebarComponent implements OnInit {
+  @Input()  searchProduct:any=''
+  
   getId: any;
   array: any[] = Categories;
   arrayOfProducts: any[] = [];
@@ -50,4 +56,5 @@ export class SidebarComponent implements OnInit {
     console.log("gettingData", data);
     this.cartArray.push(data);
   }
+
 }
