@@ -1,17 +1,15 @@
 <mat-toolbar>
-  <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-    <mat-icon class="menu">menu</mat-icon>
-  </button>
-  -->
-
     <span>Kifayat</span>
     <span class="example-spacer"></span>
     <div class="inputField">
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Search Product</mat-label>
-        <input  matInput title="search bar" />
+        <input  matInput title="search bar" [(ngModel)]="searchProduct" name="input" #input="ngModel" (keyup)="searchdata()" 
+       >
+    
       </mat-form-field>
     </div>
+    
     <button
       mat-icon-button
       class="example-icon"

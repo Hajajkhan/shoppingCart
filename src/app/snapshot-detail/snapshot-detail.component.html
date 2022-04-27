@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="main" >
+      <h1>Peroduct Details Page</h1>
+      <div class="products">
+        <mat-card class="productimag">
+          <img
+            class="img"
+            mat-card-image
+            src="https://images.unsplash.com/photo-1618424181497-157f25b6ddd5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wJTIwY29tcHV0ZXJ8ZW58MHx8MHx8&w=1000&q=80"
+            alt="Photo of a laptop"
+          />
+        </mat-card>
+  
+        <mat-card class="productSpec" >
+          <mat-card-title>Product Specification</mat-card-title>
+          <mat-card-content *ngFor="let item of prodcutDetail" >
+            <div class="ProductDescription">
+              <b>Prodcut Name:</b>{{item.name}}
+              </div>
+            <div class="ProductDescription">
+            <b>Prodcut Description:</b>{{item.description}}
+            </div>
+            <div>
+              <b>Price:</b>{{item.price}}$
+            </div>
+            
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="productReview">
+        <h1>Products Reviews</h1>
+        <div *ngIf="showComment" class="reviewadd">
+          <div *ngFor="let item of comment,let i=index">
+            
+         <span>{{i+1}}</span>.
+         <span>{{item}}</span>
+  
+          </div>
+        </div>
+      
+        <textarea
+          class="example-full-width"
+          placeholder="Product Reviews" 
+          [(ngModel)]="review"
+          name="input" #input="ngModel"
+         
+        ></textarea>
+        
+        <button mat-button class="btn" (click)="addReview(input.value)">Add Review</button>
+      </div>
+    </div>
+  </div>
+  

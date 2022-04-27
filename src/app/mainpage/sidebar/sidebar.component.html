@@ -1,195 +1,38 @@
-<div class="main">
-    <div class="sidebar">
-      <mat-selection-list #shoes [multiple]="false">
-        <mat-list-option class="list" *ngFor="let data of array" [value]="data.name">
-          {{ data.name}}
-        </mat-list-option>
-      </mat-selection-list>
-    </div>
-    <div class="images-detail">
-      <div class="outerbox">
-        <div class="img1">
-          <img
-            class="img"
-            src="https://images.unsplash.com/photo-1618424181497-157f25b6ddd5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wJTIwY29tcHV0ZXJ8ZW58MHx8MHx8&w=1000&q=80"
-            alt="Photo of a laptop"
-          />
-        </div>
-        <p>
-          A computer is a programmable electronic device that accepts raw data as
-          input and processes it with a set of instructions (a program) to produce
-          the result as output. It renders output just after performing
-          mathematical and logical operations and can save the output for future
-          use.
-        </p>
-       
-      </div>
-      <div class="outerbox">
-        <div class="img1">
-          <img
-            class="img"
-            src="https://images.unsplash.com/photo-1618424181497-157f25b6ddd5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wJTIwY29tcHV0ZXJ8ZW58MHx8MHx8&w=1000&q=80"
-            alt="Photo of a laptop"
-          />
-        </div>
-        <p>
-          A computer is a programmable electronic device that accepts raw data as
-          input and processes it with a set of instructions (a program) to produce
-          the result as output. It renders output just after performing
-          mathematical and logical operations and can save the output for future
-          use.
-        </p>
-      </div>
 
-      <div class="outerbox">
-        <div class="img1">
-          <img
-            class="img"
-            src="https://images.unsplash.com/photo-1618424181497-157f25b6ddd5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wJTIwY29tcHV0ZXJ8ZW58MHx8MHx8&w=1000&q=80"
-            alt="Photo of a laptop"
-          />
-        </div>
-        <p>
-          A computer is a programmable electronic device that accepts raw data as
-          input and processes it with a set of instructions (a program) to produce
-          the result as output. It renders output just after performing
-          mathematical and logical operations and can save the output for future
-          use.
-        </p>
+<div class="body">
+  <div class="sidebar">
+    <mat-selection-list #shoes [multiple]="false">
+      <mat-list-option
+        class="list"
+        *ngFor="let data of array"
+        (click)="onSelectCategory(data.id)"
+        [value]="data.name"
+      >
+        {{ data.name }}
+      </mat-list-option>
+    </mat-selection-list>
+  </div>
+  <div class="right-body">
+    <div class="outerbox" *ngFor="let data of arrayOfProducts ">
+      <div class="img1">
+        <img
+          class="img"
+          src="https://images.unsplash.com/photo-1618424181497-157f25b6ddd5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wJTIwY29tcHV0ZXJ8ZW58MHx8MHx8&w=1000&q=80"
+          alt="Photo of a laptop"
+        />
       </div>
-      <div class="outerbox">
-        <div class="img1">
-          <img
-            class="img"
-            src="https://images.unsplash.com/photo-1618424181497-157f25b6ddd5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wJTIwY29tcHV0ZXJ8ZW58MHx8MHx8&w=1000&q=80"
-            alt="Photo of a laptop"
-          />
-        </div>
-        <p>
-          A computer is a programmable electronic device that accepts raw data as
-          input and processes it with a set of instructions (a program) to produce
-          the result as output. It renders output just after performing
-          mathematical and logical operations and can save the output for future
-          use.
-        </p>
+      <div>
+        <a routerLink="/productdetail/{{ data.product_id }}">
+          <h1>{{ data.name }}</h1>
+        </a>
       </div>
-      <div class="outerbox">
-        <div class="img1">
-          <img
-            class="img"
-            src="https://images.unsplash.com/photo-1618424181497-157f25b6ddd5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wJTIwY29tcHV0ZXJ8ZW58MHx8MHx8&w=1000&q=80"
-            alt="Photo of a laptop"
-          />
-        </div>
+      <div>
+        <h3>Description:</h3>
         <p>
-          A computer is a programmable electronic device that accepts raw data as
-          input and processes it with a set of instructions (a program) to produce
-          the result as output. It renders output just after performing
-          mathematical and logical operations and can save the output for future
-          use.
+          {{ data.description }}
         </p>
-      </div>
-      <div class="outerbox">
-        <div class="img1">
-          <img
-            class="img"
-            mat-card-image
-            src="https://images.unsplash.com/photo-1618424181497-157f25b6ddd5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wJTIwY29tcHV0ZXJ8ZW58MHx8MHx8&w=1000&q=80"
-            alt="Photo of a laptop"
-          />
-        </div>
-        <p>
-          A computer is a programmable electronic device that accepts raw data as
-          input and processes it with a set of instructions (a program) to produce
-          the result as output. It renders output just after performing
-          mathematical and logical operations and can save the output for future
-          use.
-        </p>
-      </div>
-      <div class="outerbox">
-        <div class="img1">
-          <img
-            class="img"
-            mat-card-image
-            src="https://images.unsplash.com/photo-1618424181497-157f25b6ddd5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wJTIwY29tcHV0ZXJ8ZW58MHx8MHx8&w=1000&q=80"
-            alt="Photo of a laptop"
-          />
-        </div>
-        <p>
-          A computer is a programmable electronic device that accepts raw data as
-          input and processes it with a set of instructions (a program) to produce
-          the result as output. It renders output just after performing
-          mathematical and logical operations and can save the output for future
-          use.
-        </p>
-      </div>
-      <div class="outerbox">
-        <div class="img1">
-          <img
-            class="img"
-            mat-card-image
-            src="https://images.unsplash.com/photo-1618424181497-157f25b6ddd5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wJTIwY29tcHV0ZXJ8ZW58MHx8MHx8&w=1000&q=80"
-            alt="Photo of a laptop"
-          />
-        </div>
-        <p>
-          A computer is a programmable electronic device that accepts raw data as
-          input and processes it with a set of instructions (a program) to produce
-          the result as output. It renders output just after performing
-          mathematical and logical operations and can save the output for future
-          use.
-        </p>
-      </div>
-      <div class="outerbox">
-        <div class="img1">
-          <img
-            class="img"
-            mat-card-image
-            src="https://images.unsplash.com/photo-1618424181497-157f25b6ddd5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wJTIwY29tcHV0ZXJ8ZW58MHx8MHx8&w=1000&q=80"
-            alt="Photo of a laptop"
-          />
-        </div>
-        <p>
-          A computer is a programmable electronic device that accepts raw data as
-          input and processes it with a set of instructions (a program) to produce
-          the result as output. It renders output just after performing
-          mathematical and logical operations and can save the output for future
-          use.
-        </p>
-      </div>
-      <div class="outerbox">
-        <div class="img1">
-          <img
-            class="img"
-            mat-card-image
-            src="https://images.unsplash.com/photo-1618424181497-157f25b6ddd5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wJTIwY29tcHV0ZXJ8ZW58MHx8MHx8&w=1000&q=80"
-            alt="Photo of a laptop"
-          />
-        </div>
-        <p>
-          A computer is a programmable electronic device that accepts raw data as
-          input and processes it with a set of instructions (a program) to produce
-          the result as output. It renders output just after performing
-          mathematical and logical operations and can save the output for future
-          use.
-        </p>
-      </div>
-      <div class="outerbox">
-        <div class="img1">
-          <img
-            class="img"
-            mat-card-image
-            src="https://images.unsplash.com/photo-1618424181497-157f25b6ddd5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wJTIwY29tcHV0ZXJ8ZW58MHx8MHx8&w=1000&q=80"
-            alt="Photo of a laptop"
-          />
-        </div>
-        <p>
-          A computer is a programmable electronic device that accepts raw data as
-          input and processes it with a set of instructions (a program) to produce
-          the result as output. It renders output just after performing
-          mathematical and logical operations and can save the output for future
-          use.
-        </p>
+        <p>Price:{{data.price}}$</p>
       </div>
     </div>
+  </div>
 </div>
