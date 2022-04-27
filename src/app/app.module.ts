@@ -29,6 +29,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { ProductEffects } from './mainpage/sidebar/store/kifayat.effects';
 import { productReducer } from './mainpage/sidebar/store/kifayat.reducer';
 import { SnapshotDetailComponent } from './snapshot-detail/snapshot-detail.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { SnapshotDetailComponent } from './snapshot-detail/snapshot-detail.compo
     MatListModule,
     MatCardModule,
     AppRoutingModule,
+    Ng2SearchPipeModule,
     StoreModule.forRoot({ products: productReducer }, {}),
     BrowserAnimationsModule,
     EffectsModule.forRoot([ProductEffects]),

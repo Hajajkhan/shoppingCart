@@ -1,3 +1,4 @@
+
 <div class="body">
   <div class="sidebar">
     <mat-selection-list #shoes [multiple]="false">
@@ -12,7 +13,7 @@
     </mat-selection-list>
   </div>
   <div class="right-body">
-    <div class="outerbox" *ngFor="let data of arrayOfProducts">
+    <div class="outerbox" *ngFor="let data of arrayOfProducts ">
       <div class="img1">
         <img
           class="img"
@@ -30,6 +31,7 @@
         <p>
           {{ data.description }}
         </p>
+        <p>Price:{{data.price}}$</p>
       </div>
     </div>
   </div>

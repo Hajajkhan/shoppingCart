@@ -1,4 +1,4 @@
-.body {
+.main {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -37,6 +37,7 @@
     width: 260px;
     color: white;
     padding: 10px;
+   
   }
    img {
     width: 260px;
@@ -48,3 +49,13 @@
     align-items: right;
 
   }
+  button{
+    background-color: white;
+   
+  }
+  a{
+    color: white;
+    text-decoration: none;
+  }
+ 
+ 

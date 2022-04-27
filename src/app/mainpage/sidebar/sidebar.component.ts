@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { loadProducts } from './store/kifayat.actions';
 import { Categories } from './store/data.state';
+
 
 @Component({
   selector: 'app-sidebar',
@@ -10,6 +11,8 @@ import { Categories } from './store/data.state';
   styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent implements OnInit {
+  @Input()  searchProduct:any=''
+  
   getId: any;
   array: any[] = Categories;
   arrayOfProducts: any[] = [];
@@ -29,4 +32,6 @@ export class SidebarComponent implements OnInit {
   onSelectCategory(data: any) {
     this.store.dispatch(loadProducts({ data: data }));
   }
+
+ 
 }

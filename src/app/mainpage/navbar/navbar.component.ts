@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { NavbardialogComponent } from './navbardialog/navbardialog.component';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { LowerCasePipe } from '@angular/common';
 
 
 @Component({
@@ -8,11 +11,24 @@ import { NavbardialogComponent } from './navbardialog/navbardialog.component';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
+ 
 export class NavbarComponent implements OnInit {
+  
+  searchProduct:any='';
+  arrayOfProducts:any[]=[];
+  prodctdata:any[]=[]
+  $product: Observable<any> = this.store.select((state: any) => {
+    return state.products.products;
+  });
 
-  constructor(public dialog: MatDialog) { }
+
+  constructor(public dialog: MatDialog, private store:Store) { }
 
   ngOnInit(): void {
+    this.$product.subscribe((data) => {
+      this.arrayOfProducts = data;
+      console.log("dataNav",data)
+    });
   }
   openDialog() {
     const dialogRef = this.dialog.open(NavbardialogComponent);
@@ -20,6 +36,17 @@ export class NavbarComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
+  }
+  searchdata(){
+    // this.prodctdata=  this.arrayOfProducts.filter(res=>{
+      this.arrayOfProducts.filter((item) => {
+        if ((item.name.toLowerCase()).includes(this.searchProduct.toLowerCase())) {
+        this.prodctdata.push(item);
+        }
+     })
+     console.log("array", this.arrayOfProducts);
+     console.log(this.prodctdata)
+
   }
 
 }
