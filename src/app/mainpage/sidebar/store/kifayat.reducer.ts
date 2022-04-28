@@ -11,8 +11,6 @@ const _productsReducer = createReducer(
   initialstate,
   on(loadProductsSucceed, (state, { products }) => {
     let product = products.rows;
-    // let formedArray = category.rows;
-    console.log('action', product);
     return { ...state, products: product };
   })
 );
