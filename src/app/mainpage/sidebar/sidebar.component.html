@@ -1,4 +1,3 @@
-
 <div class="main">
   <div class="subDiv">
     <div class="data">
@@ -38,24 +37,27 @@
                   </div>
                   <div class="price">
                     <div>
-                      <p class="actual">
-                        Actual Price: {{ data.price }}$
-                      </p>
+                      <p class="actual">Actual Price: {{ data.price }}$</p>
                     </div>
                     <div>
-                      <p>
-                        Discounted Price: {{ data.discounted_price }}$
-                      </p>
+                      <p>Discounted Price: {{ data.discounted_price }}$</p>
                     </div>
                   </div>
                   <div class="btn">
                     <button
                       mat-button
                       routerLink="/productdetail/{{ data.product_id }}"
+                      (click)="gettingReviewsOfProduct(data.product_id)"
                     >
                       View Detail
                     </button>
-                    <button mat-button color="primary" (click)="addToCart(data)">Add to Cart</button>
+                    <button
+                      mat-button
+                      color="primary"
+                      (click)="addToCart(data)"
+                    >
+                      Add to Cart
+                    </button>
                   </div>
                 </div>
               </div>

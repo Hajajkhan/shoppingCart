@@ -10,7 +10,6 @@ export class ProductEffects {
     this.action$.pipe(
       ofType(loadProducts),
       mergeMap((actions) => {
-        console.log('actions', actions);
         return this.service.getProductsData(actions.data).pipe(
           // tap((data) => console.log('TAPPING', data)),
           map((data) => loadProductsSucceed({ products: data }))
