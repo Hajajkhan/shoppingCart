@@ -40,8 +40,21 @@
          <span>{{i+1}}</span>.
          <span>{{item}}</span>
   
+
           </div>
+          <div><b>Price:</b>{{ item.discounted_price }}$</div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="productReview">
+      <h1>Products Reviews</h1>
+      <div *ngIf="showComment" class="reviewadd">
+        <div *ngFor="let item of comment; let i = index">
+          <span>{{ i + 1 }}</span
+          >.
+          <span>{{ item }}</span>
         </div>
+
       
         <textarea
           class="example-full-width"
@@ -52,7 +65,20 @@
         ></textarea>
         
         <button  mat-stroked-button class="btn"  (click)="addReview(input.value)">Add Review</button>
+
       </div>
+
+      <textarea
+        class="example-full-width"
+        placeholder="Product Reviews"
+        [(ngModel)]="review"
+        name="input"
+        #input="ngModel"
+      ></textarea>
+
+      <button mat-button class="btn" (click)="addReview(input.value)">
+        Add Review
+      </button>
     </div>
   </div>
-  
+</div>
