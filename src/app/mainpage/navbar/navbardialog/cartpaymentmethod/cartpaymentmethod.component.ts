@@ -1,21 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder,Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cartpaymentmethod',
   templateUrl: './cartpaymentmethod.component.html',
-  styleUrls: ['./cartpaymentmethod.component.css']
+  styleUrls: ['./cartpaymentmethod.component.css'],
 })
 export class CartpaymentmethodComponent implements OnInit {
-  selected:any;
+  selected: any;
   firstFormGroup!: FormGroup;
   secondFormGroup!: FormGroup;
   thirdFormGroup!: FormGroup;
 
-  selectedstatement=true;
+  selectedstatement = true;
 
-  methods:any[]=["MasterCard", "VisaCard", "PayPal", "BitCoin","Skrill", "Cash on Delivery"]
-  constructor(private _formBuilder: FormBuilder) { }
+  methods: any[] = [
+    'MasterCard',
+    'VisaCard',
+    'PayPal',
+    'BitCoin',
+    'Skrill',
+    'Cash on Delivery',
+  ];
+  constructor(private _formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
     this.firstFormGroup = this._formBuilder.group({
@@ -28,9 +35,7 @@ export class CartpaymentmethodComponent implements OnInit {
       thirdCtrl: ['', Validators.required],
     });
   }
- displaySelection(){
-   this.selectedstatement = false;
- }
-
-
+  displaySelection() {
+    this.selectedstatement = false;
+  }
 }

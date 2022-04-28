@@ -27,7 +27,7 @@ export class CustomVirtualScrollStrategy extends FixedSizeVirtualScrollStrategy 
   ],
 })
 export class SidebarComponent implements OnInit {
-  @Input()  searchProduct:any=''
+
   
   getId: any;
   array: any[] = Categories;

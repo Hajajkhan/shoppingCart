@@ -1,13 +1,19 @@
 table {
     width: 100%;
-    background-color: #424242;
+    background-color: white ;
     
 }
 th,td{
-    color: white;
+    color:black;
 }
 mat-typography{
-    background-color: #424242;
+    background-color: white;
     color: white;
+    padding: 10px;
     
+}
+
+button{
+    background-color: #00a699;
+    color: white;
 }

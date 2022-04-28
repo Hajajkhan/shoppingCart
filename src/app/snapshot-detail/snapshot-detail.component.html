@@ -20,8 +20,13 @@
             <div class="ProductDescription">
             <b>Prodcut Description:</b>{{item.description}}
             </div>
-            <div>
-              <b>Price:</b>{{item.price}}$
+            <div class="price">
+              <div>
+                <p class="actual">Actual Price: {{ item.price }}$</p>
+              </div>
+              <div>
+                <p>Discounted Price: {{ item.discounted_price }}$</p>
+              </div>
             </div>
             
           </mat-card-content>
@@ -46,7 +51,7 @@
          
         ></textarea>
         
-        <button mat-button class="btn" (click)="addReview(input.value)">Add Review</button>
+        <button  mat-stroked-button class="btn"  (click)="addReview(input.value)">Add Review</button>
       </div>
     </div>
   </div>
