@@ -95,13 +95,12 @@
     color: blue;
 
   }
-  button{
-    background-color: white;
-   
-  }
   a{
     color: white;
     text-decoration: none;
+  }
+  .list{
+    color: white;
   }
  
  

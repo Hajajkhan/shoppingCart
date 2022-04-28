@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { KifayatService } from 'src/app/kifayat.service';
 
 export interface PeriodicElement {
   name: string;
@@ -26,14 +27,17 @@ export interface PeriodicElement {
 })
 export class NavbardialogComponent implements OnInit {
 
+  array:any[]=[];
   
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
   
 
-  constructor() { }
+  constructor(private service:KifayatService) { }
 
   ngOnInit(): void {
+    this.array= this.service.array;
+      console.log("dialo", this.array);
   }
 
 }

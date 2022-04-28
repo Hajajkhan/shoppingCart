@@ -15,7 +15,7 @@ export class SnapshotDetailComponent implements OnInit {
   productId: any = '';
   arrayOfProducts: any[] = [];
   snapShotedItem: any = '';
-  prodcutDetail:any[]=[]
+  prodcutDetail: any[] = [];
 
   $product: Observable<any> = this.store.select((state: any) => {
     return state.products.products;
@@ -27,14 +27,13 @@ export class SnapshotDetailComponent implements OnInit {
     this.productId = this.activatedroute.snapshot.params['id'];
     this.$product.subscribe((data) => {
       this.arrayOfProducts = data;
-      console.log("aray",this.arrayOfProducts)
+      console.log('aray', this.arrayOfProducts);
     });
     this.arrayOfProducts.forEach((item) => {
       if (item.product_id === parseInt(this.productId)) {
         this.snapShotedItem = item;
-        this.prodcutDetail.push(this.snapShotedItem)
-        console.log('sssd',this.prodcutDetail)
-
+        this.prodcutDetail.push(this.snapShotedItem);
+        console.log('sssd', this.prodcutDetail);
       }
     });
     console.log(this.snapShotedItem);
