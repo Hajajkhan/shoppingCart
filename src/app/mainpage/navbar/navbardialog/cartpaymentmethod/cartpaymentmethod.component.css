@@ -1,15 +1,17 @@
-.stepperOne{
+.stepperOne {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-top: 10px;
 }
-.head{
-    color: white;
+
+.head {
+    color: black;
     margin-right: 15px;
 }
-.stepper{
+
+.stepper {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,34 +19,48 @@
     padding: 10px;
     width: auto;
     margin-left: 10px;
-    background-color: #424242;
-    color: white;
-}
-mat-label{
-    color: white;
+
+    color: black;
 }
 
+mat-label {
+    color: black;
+}
 
-mat-stepper{
+mat-stepper {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100%;
-    
 }
-.select{
-    background-color: #424242;
-    color: white;
+
+.stepperOne {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 10px;
 }
+
 .example-form {
     min-width: 150px;
     max-width: 500px;
     width: 100%;
-  }
-  mat-form-field{
-      width: 300px;
-  }     
-  .example-full-width {
+}
+
+mat-form-field {
+    width: 300px;
+}
+
+.example-full-width {
     width: 100%;
-  }
+}
+
+button {
+    background-color: #00a699;
+    color: white;
+    margin: 5px;
+}
+
+form {
+    background-color: white;
+    color: black;
+}

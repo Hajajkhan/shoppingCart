@@ -1,106 +1,110 @@
-
 .main {
 
-    display: flex;
-    flex-direction: column;
-  }
-  .subDiv{
-    display: flex;
-    flex-direction: column;
-    /* position: fixed; */
-  }
-  .data{
-    display: flex;
-    flex-direction:row;
-    height: 100vh;
-    gap: 5px;
-    justify-content: space-between;
-  }
-  .left{
-    display: flex;
-    flex-direction: column;
-    width: 20%;
-    background-color: #424242;
-    font-size: 16px;
-  }
-  img {
-    width: 300px;
-    height: 150px;
-    cursor: pointer;
-    border-radius: 10px;
-  }
-  .right{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 5px;
-    width: 80%;
-    height: auto;
-  }
-  .example-viewport {
-    height: 100%;
-    width: 100%;
-  }
-  .example-item {
-    height: auto;
-  }
-  .innerDiv{
-    border: 2px solid #424242;
-    border-radius: 10px;
-  }
-  .innerData{
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    gap: 5px;
+  display: flex;
+  flex-direction: column;
+}
 
-  }
-  .descriptionData{
-    display: flex;
-    flex-direction: column;
-    width: fit-content;
-  }
-  .description{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    border: 1px solid #424242;
-    border-radius: 5px;
-    padding: 5px;
-    width: 300px;
-    height: 130px;
-  }
-  .btn{
-    display: flex;
-    flex-direction: column;
-  }
-  button{
-    width: 100%;
-    border-radius: 10px;
-  }
-  .imgs{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 10px;
-    padding: 10px;
-  }
-  .price{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  .actual{
-    text-decoration:line-through;
-    color: blue;
+.subDiv {
+  display: flex;
+  flex-direction: column;
+  /* position: fixed; */
+}
 
-  }
-  a{
-    color: white;
-    text-decoration: none;
-  }
-  .list{
-    color: white;
-  }
- 
- 
+.list {
+  color: white;
+}
+
+.data {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  gap: 5px;
+  justify-content: space-between;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  background-color: #00a699;
+  font-size: 16px;
+}
+
+img {
+  width: 300px;
+  cursor: pointer;
+}
+
+.example-card {
+  width: 267px;
+}
+
+.right {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 5px;
+  width: 80%;
+  height: auto;
+}
+
+.example-viewport {
+  height: 100%;
+  width: 100%;
+}
+
+
+.example-item {
+  height: auto;
+}
+.innerData {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 5px;
+}
+.descriptionData {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+.description {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 5px;
+  height: 130px;
+}
+.btn {
+  display: flex;
+  flex-direction: row;
+}
+button {
+  width: 100%;
+  border-radius: 10px;
+}
+.imgs {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+}
+.price {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.actual {
+  text-decoration: line-through;
+  color: blue;
+}
+.addtocartbtn {
+  color: white;
+  background-color: #0c4da2;
+}
+.detailviewbtn {
+  color: white;
+  background-color: #00a699;
+}
+
