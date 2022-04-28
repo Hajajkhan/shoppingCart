@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -10,6 +9,7 @@ export class KifayatService {
 
   array: any[] = [];
   serachedArray: any[] = [];
+  reviews:any[]=[];
 
   getProductsData(data: any) {
     if (data != null) {
@@ -29,12 +29,16 @@ export class KifayatService {
       )
       .subscribe((data) => {
         this.serachedArray = data.rows;
-        // console.log("service", this.serachedArray);
       });
   }
 
   getDataForSharingToComponents(data: any) {
     this.array = data;
-    // console.log("service", this.array);
+  }
+
+  gettingReviews(data:any){
+    return this.http.get<any>("https://backendapi.turing.com/products/"+data+"/reviews").subscribe(data=>{
+      this.reviews=data;
+    });
   }
 }

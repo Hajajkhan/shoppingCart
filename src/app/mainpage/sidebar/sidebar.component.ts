@@ -53,4 +53,8 @@ export class SidebarComponent implements OnInit {
     this.cartArray.push(data);
     this.service.getDataForSharingToComponents(this.cartArray);
   }
+
+  gettingReviewsOfProduct(id:any){
+    this.service.gettingReviews(id);
+  }
 }

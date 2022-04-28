@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { KifayatService } from '../kifayat.service';
 
 @Component({
   selector: 'app-snapshot-detail',
@@ -16,12 +17,13 @@ export class SnapshotDetailComponent implements OnInit {
   arrayOfProducts: any[] = [];
   snapShotedItem: any = '';
   prodcutDetail: any[] = [];
+  reviewsArray:any;
 
   $product: Observable<any> = this.store.select((state: any) => {
     return state.products.products;
   });
 
-  constructor(private store: Store, private activatedroute: ActivatedRoute) {}
+  constructor(private store: Store, private activatedroute: ActivatedRoute, private service:KifayatService) {}
 
   ngOnInit(): void {
     this.productId = this.activatedroute.snapshot.params['id'];
@@ -42,5 +44,7 @@ export class SnapshotDetailComponent implements OnInit {
     this.comment.push(data);
     this.review = '';
     this.showComment = true;
+    this.reviewsArray = this.service.reviews;
+    console.log("ReviewsSnap", this.reviewsArray);
   }
 }
