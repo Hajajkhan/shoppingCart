@@ -12,12 +12,19 @@ import { KifayatService } from '../kifayat.service';
 export class SnapshotDetailComponent implements OnInit {
   review: any = '';
   comment: any[] = [];
-  showComment: boolean = false;
+  showreview: boolean = false;
   productId: any = '';
   arrayOfProducts: any[] = [];
   snapShotedItem: any = '';
   prodcutDetail: any[] = [];
   reviewsArray:any;
+  resultsLength = 0;
+  isLoadingResults = true;
+  isRateLimitReached = false;
+
+
+  displayedColumns: string[] = ['name', 'review', 'rating'];
+  
 
   $product: Observable<any> = this.store.select((state: any) => {
     return state.products.products;
@@ -38,13 +45,17 @@ export class SnapshotDetailComponent implements OnInit {
         console.log('sssd', this.prodcutDetail);
       }
     });
+   
     console.log(this.snapShotedItem);
   }
   addReview(data: any) {
     this.comment.push(data);
     this.review = '';
-    this.showComment = true;
+    this.showreview = true;
     this.reviewsArray = this.service.reviews;
     console.log("ReviewsSnap", this.reviewsArray);
+
   }
+ 
+ 
 }

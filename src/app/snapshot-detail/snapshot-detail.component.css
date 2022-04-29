@@ -3,26 +3,37 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    /* height: 100vh; */
+    flex-direction: column;
 }
+
 .main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
     padding: 20px;
     border-radius: 10px;
     background-color: #00a699;
+    width: 100%;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBKaluU9ZbFWdzJ9Ek9JPwKdw2RyhHKeRj3g&usqp=CAU');
+    background-size: cover;
+
 }
+
 .products {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+   
 }
+
 .productimag {
     max-width: 250px;
     margin: 10px;
     background-color: white;
 }
+
 .productSpec {
     max-width: 400px;
     height: 170px;
@@ -31,12 +42,15 @@
     color: #4c4646;
     font-family: Georgia, serif;
 }
+
 .productReview {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
+
 h1 {
     display: flex;
     justify-content: center;
@@ -44,6 +58,7 @@ h1 {
     font-weight: 800px;
     color: white;
 }
+
 .reviewadd {
     border: 1px solid #a3a2a2;
     margin-top: 10px;
@@ -51,6 +66,7 @@ h1 {
     border-radius: 6px;
     background-color: white;
 }
+
 .example-full-width {
     height: 70px;
     width: 730px;
@@ -58,29 +74,121 @@ h1 {
     margin-top: 10px;
     border-radius: 6px;
 }
+
 .btn {
     background-color: #0c4da2;
-    color:white;
+    color: white;
     margin-top: 10px;
     width: 200px;
     height: 50px;
     border-radius: 10px;
+    margin-bottom: 10px;
 
 }
-.ProductDescription{
+
+.ProductDescription {
     display: flex;
     flex-direction: column;
     color: #4c4646;
     font-family: 700px;
     font-family: Georgia, serif;
 }
+
 .price {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    
-  }
-  .actual {
+
+}
+
+.actual {
     text-decoration: line-through;
     color: blue;
-  }
+}
+
+.reviewcard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.review {
+    padding: 10px;
+    width: 500px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+}
+
+/* .reviewdisply {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-between;
+} */
+
+.head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.example-container {
+    position: relative;
+    
+}
+
+.example-table-container {
+    position: relative;
+    min-height: 200px;
+    max-height: 400px;
+    overflow: auto;
+    /* border-radius: 10px; */
+}
+
+table {
+    width: 730px;
+    border-radius: 10px;
+
+}
+
+.tabledata {
+    color: white;
+    background-color: white;
+    width: 745px;
+    border-top-left-radius:10px ;
+    border-top-right-radius: 10px;
+
+}
+
+.reviewheading {
+    color: black;
+}
+
+.material-icons {
+    color: yellow;
+}
+
+.star {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+.example-rate-limit-reached {
+    max-width: 360px;
+    text-align: center;
+    
+}
+
+/* Column Widths */
+.mat-column-number,
+.mat-column-state {
+    max-width: 64px;
+}
+
+.mat-column-created {
+    max-width: 124px;
+}

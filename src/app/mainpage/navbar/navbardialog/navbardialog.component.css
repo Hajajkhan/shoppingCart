@@ -1,31 +1,34 @@
-table {
-    width: 100%;
-    background-color: white ;
-    
-}
-th,td{
-    color:black;
-}
-mat-typography{
-    background-color: white;
-    color: white;
-    padding: 10px;
-    
-}
 
-button{
+
+.btnchekout{
     background-color: #00a699;
     color: white;
 }
+.iconbtn{
+    border: white;
+    background-color: white;
+}
+.icons{
+    font-size: 30px;
+    color: #00a699;
+    font-weight: 800px;
+}
+.buttontd{
+    display: flex;
+    flex-direction: row;
+}
 img{
-    width: 100px;
-    height: 100px;
-    border-radius: 10px;
+    width: 150px;
+    height: 100%;
+    /* border-radius: 10px; */
 }
 td, th{
-    border: 2px solid black;
-    width: 200px;
+    border: 1px solid gray;
+    text-align: center;
+    text-align: center;
+
 }
+   
 .addtocartbtn{
     width: fit-content;
     height: fit-content;
@@ -36,3 +39,32 @@ mat-dialog-actions{
     flex-direction: row;
     justify-content: space-between;
 }
+.example-container {
+    position: relative;
+  }
+  
+  .example-table-container {
+    position: relative;
+    min-height: 200px;
+    max-height: 400px;
+    overflow: auto;
+  }
+  
+  table {
+    width: 100%;
+  }
+
+  .example-rate-limit-reached {
+    max-width: 360px;
+    text-align: center;
+  }
+  
+  /* Column Widths */
+  .mat-column-number,
+  .mat-column-state {
+    max-width: 64px;
+  }
+  
+  .mat-column-created {
+    max-width: 124px;
+  }
