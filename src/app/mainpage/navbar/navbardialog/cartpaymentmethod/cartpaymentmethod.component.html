@@ -14,6 +14,7 @@
               formControlName="firstCtrl"
               placeholder="Last name, First name"
               required
+              [(ngModel)]="firstName" name="personName"
             /> </mat-form-field
           ><br />
           <mat-form-field appearance="fill">
@@ -175,13 +176,33 @@
     </div>
   </mat-step>
   <mat-step>
-    <ng-template matStepLabel>Payment Review</ng-template>
     <mat-form-field appearance="fill">
-      <mat-label>Your Billing Amount</mat-label>
+<mat-label>Your Billing Amount</mat-label>
       <input matInput disabled="true" value="500" /> </mat-form-field
     ><br />
-    <div>
+<div>
       <button routerLink="" mat-button matStepperNext>Pay Now</button>
     </div>
+
+    <ng-template matStepLabel>Payment Review</ng-template>
+    <div class="container">
+      <div class="shippingDetail">
+        <div class="personDetail">
+          <h1>Person Detail</h1>
+           <div>Name</div>
+           <div>Email</div>
+           <div>Address</div>
+
+        </div>
+        <div class="productDetail">
+          <h1>Product Detail</h1>
+          <div>Product Name</div>
+          <div>Description</div>
+          <div>Product Price</div>
+        </div>
+      </div>
+
+    </div>
+  
   </mat-step>
 </mat-stepper>

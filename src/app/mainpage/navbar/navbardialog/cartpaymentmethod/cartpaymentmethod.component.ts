@@ -11,8 +11,16 @@ export class CartpaymentmethodComponent implements OnInit {
   firstFormGroup!: FormGroup;
   secondFormGroup!: FormGroup;
   thirdFormGroup!: FormGroup;
-
   selectedstatement = true;
+
+  firstName:any=''
+  personfirstName:any=''
+  lastName:any=''
+  email:string=''
+  address:any=''
+  phoneNumber:any=''
+  streetAddress:any=''
+  pesronNumber:any=''
 
   methods: any[] = [
     'MasterCard',
@@ -37,5 +45,9 @@ export class CartpaymentmethodComponent implements OnInit {
   }
   displaySelection() {
     this.selectedstatement = false;
+  }
+  addContactDetail(){
+  
+         
   }
 }
