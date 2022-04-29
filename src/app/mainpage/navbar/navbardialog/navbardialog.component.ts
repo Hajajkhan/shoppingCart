@@ -7,26 +7,64 @@ export interface PeriodicElement {
   weight: number;
   symbol: string;
 }
-  const ELEMENT_DATA: PeriodicElement[] = [];
 
 @Component({
   selector: 'app-navbardialog',
   templateUrl: './navbardialog.component.html',
-  styleUrls: ['./navbardialog.component.css']
+  styleUrls: ['./navbardialog.component.css'],
 })
 export class NavbardialogComponent implements OnInit {
+  array: any[] = [];
+  arrayOfProducts: any[] = [];
+  updatedItems: any[] = [];
+  totalPriceOfProduct:any;
+  count:any;
 
-  array:any[]=[];
-  
-  displayedColumns: string[] = ['name', 'discounted_price'];
-  dataSource = ELEMENT_DATA;
-  
+  displayedColumns: string[] = [
+    'position',
+    'name',
+    'weight',
+    'Quantity',
+    'symbol',
+    'DisCart',
+  ];
 
-  constructor(private service:KifayatService) { }
+  constructor(private service: KifayatService) {}
 
   ngOnInit(): void {
-    this.array= this.service.array;
-      console.log("dialo", this.array);
+    this.array = this.service.array;
+    console.log('dialo', this.array);
+    let productObject;
+    this.array.forEach((data) => {
+      productObject = {
+        name: data.name,
+        items: 1,
+        price: Math.round(data.discounted_price),
+        id: data.product_id,
+        description: data.description,
+      };
+      this.arrayOfProducts.push(productObject);
+    });
+    this.count = this.arrayOfProducts.length;
   }
 
+  incrementProduct(data: any) {
+    data.items = data.items+1;
+    console.log("dd", this.count);
+  }
+
+  decrementProduct(data: any) {
+    if(data.items!=1){
+      data.items = data.items-1;
+    }
+  }
+  deleteThisItem(index:any){
+    console.log("index",index)
+    this.arrayOfProducts.splice(0, 1);
+    console.log(this.arrayOfProducts,"Del")
+  }
+
+  givingTheCountofProducts(){
+    this.service.gettingCount(this.count);
+  }
 }
