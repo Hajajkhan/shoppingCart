@@ -11,6 +11,8 @@ export class CartpaymentmethodComponent implements OnInit {
   firstFormGroup!: FormGroup;
   secondFormGroup!: FormGroup;
   thirdFormGroup!: FormGroup;
+
+  fourthFormGroup!:FormGroup;
   selectedstatement = true;
 
   firstName:any=''
@@ -35,13 +37,26 @@ export class CartpaymentmethodComponent implements OnInit {
   ngOnInit(): void {
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required],
-    });
-    this.secondFormGroup = this._formBuilder.group({
       secondCtrl: ['', Validators.required],
     });
-    this.thirdFormGroup = this._formBuilder.group({
+    this.secondFormGroup = this._formBuilder.group({
       thirdCtrl: ['', Validators.required],
+      fourthCtrl: ['', Validators.required],
+      fifthCtrl: ['', Validators.required],
+      sixthCtrl: ['', Validators.required],
+      seaventhCtrl:['', Validators.required],
+
     });
+    this.thirdFormGroup = this._formBuilder.group({
+      eigththCtrl: ['', Validators.required],
+      ninthCtrl: ['', Validators.required],
+      tenthCtrl: ['', Validators.required],
+      eleventhCtrl: ['', Validators.required],
+    });
+    this.fourthFormGroup = this._formBuilder.group({
+      selectCtrl: ['', Validators.required],
+    })
+
   }
   displaySelection() {
     this.selectedstatement = false;

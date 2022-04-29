@@ -43,6 +43,7 @@ export class SidebarComponent implements OnInit {
     this.$product.subscribe((data) => {
       this.arrayOfProducts = data;
     });
+    this.searchedArray = this.service.serachedArray;
   }
 
   onSelectCategory(data: any) {
@@ -53,8 +54,6 @@ export class SidebarComponent implements OnInit {
     console.log('gettingData', data);
     this.cartArray.push(data);
     this.service.getDataForSharingToComponents(this.cartArray, this.arrayOfProducts);
-    console.log("SSV", this.searchedArray);
-
   }
 
   gettingReviewsOfProduct(id:any){

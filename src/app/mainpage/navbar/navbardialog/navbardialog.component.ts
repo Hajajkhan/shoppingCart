@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { KifayatService } from 'src/app/kifayat.service';
 
 export interface PeriodicElement {
@@ -19,6 +19,7 @@ export class NavbardialogComponent implements OnInit {
   updatedItems: any[] = [];
   totalPriceOfProduct:any;
   count:any;
+  total:any;
 
   displayedColumns: string[] = [
     'position',
@@ -46,25 +47,38 @@ export class NavbardialogComponent implements OnInit {
       this.arrayOfProducts.push(productObject);
     });
     this.count = this.arrayOfProducts.length;
+    this.total = this.arrayOfProducts.reduce((sum:any, item:any) => {
+      return sum+item.price*item.items
+    }, 0 
+    )
+    
   }
 
   incrementProduct(data: any) {
     data.items = data.items+1;
-    console.log("dd", this.count);
+    this.total = this.arrayOfProducts.reduce((sum:any, item:any) => {
+      return sum+item.price*item.items
+    }, 0 
+    )
+    console.log("CC", this.count);
   }
 
   decrementProduct(data: any) {
     if(data.items!=1){
       data.items = data.items-1;
+      this.total = this.arrayOfProducts.reduce((sum:any, item:any) => {
+        return sum+item.price*item.items
+      }, 0 
+      )
     }
   }
   deleteThisItem(index:any){
     console.log("index",index)
     this.arrayOfProducts.splice(0, 1);
-    console.log(this.arrayOfProducts,"Del")
   }
 
   givingTheCountofProducts(){
     this.service.gettingCount(this.count);
   }
+  
 }

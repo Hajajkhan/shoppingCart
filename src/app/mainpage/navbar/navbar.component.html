@@ -1,27 +1,29 @@
 <mat-toolbar>
-    <span>Kifayat</span>
-    <span class="example-spacer"></span>
-    <div class="inputField">
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Search Product</mat-label>
-        <input  matInput title="search bar" [(ngModel)]="searchProduct" name="input" #input="ngModel" (keyup)="searchdata()" 
-       >
-    
-      </mat-form-field>
-    </div>
+  <span>Kifayat</span>
+  <span class="example-spacer"></span>
+  <div class="inputField">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Search Product</mat-label>
+      <input
+        matInput
+        title="search bar"
+        [(ngModel)]="searchProduct"
+        name="input"
+        #input="ngModel"
+        (keyup)="searchdata()"
+      />
+    </mat-form-field>
+  </div>
 
-    <span class="example-spacer"></span>
+  <span class="example-spacer"></span>
 
-    
-    <button
-      mat-icon-button
-      class="example-icon"
-      aria-label="Example icon-button with share icon"
-      (click)="openDialog()"
-    >
-      <mat-icon title="Cart">add_shopping_cart</mat-icon>
-      {{countedProducts}}
-
-    </button>
-
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with share icon"
+    (click)="openDialog()"
+  >
+  <mat-icon title="Cart">add_shopping_cart</mat-icon>
+  <sup>{{products.length}}</sup>
+  </button>
 </mat-toolbar>
