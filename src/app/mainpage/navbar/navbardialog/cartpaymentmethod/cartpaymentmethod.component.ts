@@ -11,18 +11,18 @@ export class CartpaymentmethodComponent implements OnInit {
   firstFormGroup!: FormGroup;
   secondFormGroup!: FormGroup;
   thirdFormGroup!: FormGroup;
+  fourthFormGroup!: FormGroup;
 
-  fourthFormGroup!:FormGroup;
   selectedstatement = true;
 
-  firstName:any=''
-  personfirstName:any=''
-  lastName:any=''
-  email:string=''
-  address:any=''
-  phoneNumber:any=''
-  streetAddress:any=''
-  pesronNumber:any=''
+  firstName: any = '';
+  personfirstName: any = '';
+  lastName: any = '';
+  email: string = '';
+  address: any = '';
+  phoneNumber: any = '';
+  streetAddress: any = '';
+  pesronNumber: any = '';
 
   methods: any[] = [
     'MasterCard',
@@ -44,8 +44,7 @@ export class CartpaymentmethodComponent implements OnInit {
       fourthCtrl: ['', Validators.required],
       fifthCtrl: ['', Validators.required],
       sixthCtrl: ['', Validators.required],
-      seaventhCtrl:['', Validators.required],
-
+      seaventhCtrl: ['', Validators.required],
     });
     this.thirdFormGroup = this._formBuilder.group({
       eigththCtrl: ['', Validators.required],
@@ -55,14 +54,13 @@ export class CartpaymentmethodComponent implements OnInit {
     });
     this.fourthFormGroup = this._formBuilder.group({
       selectCtrl: ['', Validators.required],
-    })
-
+    });
   }
   displaySelection() {
     this.selectedstatement = false;
   }
-  addContactDetail(){
-  
-         
+  addContactDetail() {}
+  console() {
+    console.log('name');
   }
 }

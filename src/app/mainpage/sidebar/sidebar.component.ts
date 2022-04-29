@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Store } from '@ngrx/store';
 import {
@@ -28,7 +28,7 @@ export class SidebarComponent implements OnInit {
   getId: any;
   array: any[] = Categories;
   arrayOfProducts: any[] = [];
-  searchedArray:any[]=[];
+  searchedArray: any[] = [];
 
   cartArray: any[] = [];
 
@@ -43,7 +43,6 @@ export class SidebarComponent implements OnInit {
     this.$product.subscribe((data) => {
       this.arrayOfProducts = data;
     });
-    this.searchedArray = this.service.serachedArray;
   }
 
   onSelectCategory(data: any) {
@@ -53,10 +52,15 @@ export class SidebarComponent implements OnInit {
   addToCart(data: any) {
     console.log('gettingData', data);
     this.cartArray.push(data);
-    this.service.getDataForSharingToComponents(this.cartArray, this.arrayOfProducts);
+    this.service.getDataForSharingToComponents(
+      this.cartArray,
+      this.arrayOfProducts
+    );
+    this.searchedArray = this.service.serachedArray;
+    console.log('Search', this.searchedArray);
   }
 
-  gettingReviewsOfProduct(id:any){
+  gettingReviewsOfProduct(id: any) {
     this.service.gettingReviews(id);
   }
 }

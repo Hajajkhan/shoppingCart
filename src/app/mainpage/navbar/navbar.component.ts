@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit {
   prodctdata: any[] = [];
   countedProducts: any;
   searchedArray: any[] = [];
-  products: any[]=[];
+  products: any[] = [];
 
   $product: Observable<any> = this.store.select((state: any) => {
     return state.products.products;
@@ -28,7 +28,7 @@ export class NavbarComponent implements OnInit {
     private store: Store,
     private service: KifayatService
   ) {}
-  
+
   ngOnInit(): void {
     // this.products = this.service.array;
     this.$product.subscribe((data) => {
@@ -38,12 +38,12 @@ export class NavbarComponent implements OnInit {
   openDialog() {
     const dialogRef = this.dialog.open(NavbardialogComponent);
     dialogRef.afterClosed().subscribe((result) => {});
-     this.products = this.service.array;
+    this.products = this.service.array;
     console.log('CCC', this.products);
   }
 
   searchdata() {
     // this.store.dispatch(loadProducts( {data: this.searchProduct}))
-     this.service.getSearchedData(this.searchProduct);
+    this.service.getSearchedData(this.searchProduct);
   }
 }

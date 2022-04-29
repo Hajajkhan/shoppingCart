@@ -31,7 +31,6 @@ import { productReducer } from './mainpage/sidebar/store/kifayat.reducer';
 import { SnapshotDetailComponent } from './snapshot-detail/snapshot-detail.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 
-
 @NgModule({
   declarations: [
     AppComponent,
