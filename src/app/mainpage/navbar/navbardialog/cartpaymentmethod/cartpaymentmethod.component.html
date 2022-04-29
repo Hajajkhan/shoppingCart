@@ -20,7 +20,7 @@
             <mat-label>Email</mat-label>
             <input
               matInput
-              formControlName="firstCtrl"
+              formControlName="secondCtrl"
               placeholder="john@12gmail.com"
               required
             /> </mat-form-field
@@ -61,7 +61,7 @@
             <mat-label>Email</mat-label>
             <input
               matInput
-              formControlName="secondCtrl"
+              formControlName="thirdCtrl"
               placeholder="john@12gmail.com"
               required
             /> </mat-form-field
@@ -70,7 +70,7 @@
             <mat-label>First Name</mat-label>
             <input
               matInput
-              formControlName="secondCtrl"
+              formControlName="fourthCtrl"
               placeholder="Mr/Ms"
               required
             /> </mat-form-field
@@ -79,7 +79,7 @@
             <mat-label>Last Name</mat-label>
             <input
               matInput
-              formControlName="secondCtrl"
+              formControlName="fifthCtrl"
               placeholder="John"
               required
             /> </mat-form-field
@@ -88,7 +88,7 @@
             <mat-label>Street Address</mat-label>
             <input
               matInput
-              formControlName="secondCtrl"
+              formControlName="sixthCtrl"
               placeholder="Ex. 1 Main St, New York, NY"
               required
             /> </mat-form-field
@@ -96,7 +96,8 @@
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Phone</mat-label>
             <span matPrefix>+92 &nbsp;</span>
-            <input type="tel" matInput placeholder="555-555-1234" />
+            <input type="tel" matInput formControlName="seaventhCtrl"
+            placeholder="555-555-1234" />
             <mat-icon matSuffix>phone</mat-icon> </mat-form-field
           ><br />
           <mat-form-field class="example-full-width" appearance="fill">
@@ -117,19 +118,21 @@
         <h1>Payment Method</h1>
       </div>
       <div>
-        <mat-form-field class="select" appearance="fill">
-          <mat-label>Select payment Method</mat-label>
-          <mat-select [(ngModel)]="selected">
-            <mat-option
-              *ngFor="let method of methods"
-              [value]="method"
-              onchange="displaySelection()"
-            >
-              {{ method }}
-            </mat-option> </mat-select
-          ><br /> </mat-form-field
-        ><br />
-        <div>
+        <form [formGroup]="fourthFormGroup">
+          <mat-form-field class="select" appearance="fill">
+            <mat-label>Select payment Method</mat-label>
+            <mat-select [(ngModel)]="selected" formControlName="selectCtrl" >
+              <mat-option
+                *ngFor="let method of methods"
+                [value]="method"
+                onchange="displaySelection()"
+              >
+                {{ method }}
+              </mat-option> </mat-select
+            ><br /> </mat-form-field
+          ><br />
+        </form>
+          <div>
           <p *ngIf="selectedstatement">You have Selected {{ selected }}</p>
         </div>
       </div>
@@ -140,7 +143,7 @@
             <mat-label>First Name</mat-label>
             <input
               matInput
-              formControlName="thirdCtrl"
+              formControlName="eigththCtrl"
               placeholder="john"
             /> </mat-form-field
           ><br />
@@ -148,7 +151,7 @@
             <mat-label>Last Name</mat-label>
             <input
               matInput
-              formControlName="thirdCtrl"
+              formControlName="ninthCtrl"
               placeholder="Smith"
               required
             /> </mat-form-field
@@ -158,12 +161,15 @@
             <input
               type="tel"
               matInput
+              formControlName="tenthCtrl"
               placeholder="0000-0000-0000-0000"
             /> </mat-form-field
           ><br />
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>CVC</mat-label>
-            <input type="tel" matInput placeholder="***" />
+            <input type="tel" matInput
+            formControlName="eleventhCtrl"
+            placeholder="***" />
           </mat-form-field>
           <div>
             <button mat-button matStepperPrevious>Back</button>
