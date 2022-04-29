@@ -1,13 +1,13 @@
 <h2 mat-dialog-title>Shopping Cart</h2>
 <mat-dialog-content class="mat-typography">
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <table mat-table [dataSource]="arrayOfProducts" class="mat-elevation-z8">
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
 
     <!-- Position Column -->
     <ng-container matColumnDef="position">
       <th mat-header-cell *matHeaderCellDef>No.</th>
-      <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+      <td mat-cell *matCellDef="let element; let i = index">{{ i + 1 }}</td>
     </ng-container>
 
     <!-- Name Column -->
@@ -16,28 +16,69 @@
       <td mat-cell *matCellDef="let element">{{ element.name }}</td>
     </ng-container>
 
-    <!-- Weight Column -->
+    <!-- Picture Column -->
     <ng-container matColumnDef="weight">
-      <th mat-header-cell *matHeaderCellDef>Weight</th>
-      <td mat-cell *matCellDef="let element">{{ element.weight }}</td>
+      <th mat-header-cell *matHeaderCellDef>Item</th>
+      <td mat-cell *matCellDef="let element">
+        <img
+          src="https://cdn.pixabay.com/photo/2015/11/16/16/28/bird-1045954_960_720.jpg"
+        />
+      </td>
     </ng-container>
 
-    <!-- Symbol Column -->
+    <!-- Qty Column -->
+    <ng-container matColumnDef="Quantity">
+      <th mat-header-cell *matHeaderCellDef>Quantity</th>
+      <td mat-cell *matCellDef="let element; let i = index">
+        <button
+          mat-button
+          class="addtocartbtn"
+          (click)="incrementProduct(element)"
+        >
+          +
+        </button>
+        <button
+          mat-button
+          class="addtocartbtn"
+          (click)="decrementProduct(element)"
+        >
+          -
+        </button>
+        <h3>{{ element.items }}</h3>
+      </td>
+    </ng-container>
+
+    <!-- Price Column -->
     <ng-container matColumnDef="symbol">
-      <th mat-header-cell *matHeaderCellDef>Symbol</th>
-      <td mat-cell *matCellDef="let element">{{ element.symbol }}</td>
+      <th mat-header-cell *matHeaderCellDef>Price</th>
+      <td mat-cell *matCellDef="let element">{{ element.price*element.items }}</td>
+    </ng-container>
+
+    <!-- Price Column -->
+    <ng-container matColumnDef="DisCart">
+      <th mat-header-cell *matHeaderCellDef>Remove Product</th>
+      <td mat-cell *matCellDef="let element; let i=index">
+        <button (click)="deleteThisItem(i)">
+        <mat-icon style="color: red;" >delete</mat-icon>
+        </button>
+      </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
 </mat-dialog-content>
-<mat-dialog-actions align="end">
+<mat-dialog-actions >
   <button mat-button mat-dialog-close>
     <mat-icon>arrow_left_alt</mat-icon> Continue Shopping
   </button>
-  <button mat-button routerLink="/paymentMethod" [mat-dialog-close]="true" cdkFocusInitial>
+  <h3>Total Amount</h3>
+  <button
+    mat-button
+    routerLink="/paymentMethod"
+    [mat-dialog-close]="true"
+    cdkFocusInitial
+  >
     Checkout Now
   </button>
 </mat-dialog-actions>
-

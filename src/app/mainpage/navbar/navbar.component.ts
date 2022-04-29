@@ -17,6 +17,10 @@ export class NavbarComponent implements OnInit {
   searchProduct:any='';
   arrayOfProducts:any[]=[];
   prodctdata:any[]=[]
+  countedProducts:any;
+  searchedArray:any[]=[];
+  products:any[]=[];
+
   $product: Observable<any> = this.store.select((state: any) => {
     return state.products.products;
   });
@@ -27,27 +31,21 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.$product.subscribe((data) => {
       this.arrayOfProducts = data;
-      // console.log("dataNav",data)
     });
+    this.countedProducts = this.service.countedProducts;
   }
   openDialog() {
     const dialogRef = this.dialog.open(NavbardialogComponent);
-
     dialogRef.afterClosed().subscribe(result => {
-      // console.log(`Dialog result: ${result}`);
-
     });
   }
-  searchdata(){
-    this.service.getSearchedData(this.searchProduct);
-    }
-    // this.prodctdata=[];
-    //   this.arrayOfProducts.filter((item) => {
-    //     if ((item.name.toLowerCase()).includes(this.searchProduct.toLowerCase())||(item.name.toLowerCase())==this.searchProduct) {
-    //     this.prodctdata.push(item);
-    //     }
-    //  })
-    //  console.log("array", this.arrayOfProducts);
-    //  console.log(this.prodctdata)
 
+  searchdata(){
+    this.service.getSearchedData(this.searchProduct).subscribe(data=>{
+      this.searchedArray = data.rows;
+      console.log("FF", this.searchedArray);
+    });
+   this.products = this.service.arrayOfProducts;
+   console.log("##", this.products);
+  }
 }

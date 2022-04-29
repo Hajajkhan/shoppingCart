@@ -49,6 +49,7 @@
                           class="detailviewbtn"
                           mat-button
                           routerLink="/productdetail/{{ data.product_id }}"
+                          (click)="gettingReviewsOfProduct(data.product_id)"
                         >
                           View Detail
                         </button>

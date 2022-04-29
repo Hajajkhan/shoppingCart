@@ -28,6 +28,7 @@ export class SidebarComponent implements OnInit {
   getId: any;
   array: any[] = Categories;
   arrayOfProducts: any[] = [];
+  searchedArray:any[]=[];
 
   cartArray: any[] = [];
 
@@ -51,7 +52,9 @@ export class SidebarComponent implements OnInit {
   addToCart(data: any) {
     console.log('gettingData', data);
     this.cartArray.push(data);
-    this.service.getDataForSharingToComponents(this.cartArray);
+    this.service.getDataForSharingToComponents(this.cartArray, this.arrayOfProducts);
+    console.log("SSV", this.searchedArray);
+
   }
 
   gettingReviewsOfProduct(id:any){

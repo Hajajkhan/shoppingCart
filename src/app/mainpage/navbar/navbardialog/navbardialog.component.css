@@ -17,3 +17,22 @@ button{
     background-color: #00a699;
     color: white;
 }
+img{
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+}
+td, th{
+    border: 2px solid black;
+    width: 200px;
+}
+.addtocartbtn{
+    width: fit-content;
+    height: fit-content;
+    margin-left: 5px;
+}
+mat-dialog-actions{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
