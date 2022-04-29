@@ -2,96 +2,92 @@
 <mat-dialog-content class="mat-typography">
   <div class="example-container">
     <div class="example-table-container">
-  <table mat-table [dataSource]="arrayOfProducts" class="mat-elevation-z8">
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
+      <table mat-table [dataSource]="arrayOfProducts" class="mat-elevation-z8">
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef>No.</th>
+          <td
+            style="margin: 10px"
+            mat-cell
+            *matCellDef="let element; let i = index"
+          >
+            {{ i + 1 }}
+          </td>
+        </ng-container>
 
-    <!-- Position Column -->
-    <ng-container matColumnDef="position">
-      <th mat-header-cell *matHeaderCellDef>No.</th>
-      <td style="margin: 10px;" mat-cell *matCellDef="let element; let i = index">{{ i + 1 }}</td>
-    </ng-container>
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+        </ng-container>
 
-    <!-- Name Column -->
-    <ng-container  matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef>Name</th>
-      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
-    </ng-container>
+        <!-- Picture Column -->
+        <ng-container matColumnDef="weight">
+          <th mat-header-cell *matHeaderCellDef>Item</th>
+          <td mat-cell *matCellDef="let element">
+            <img
+              src="https://images.unsplash.com/photo-1618424181497-157f25b6ddd5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wJTIwY29tcHV0ZXJ8ZW58MHx8MHx8&w=1000&q=80"
+              alt="Photo of a laptop"
+            />
+          </td>
+        </ng-container>
 
-    <!-- Picture Column -->
-    <ng-container matColumnDef="weight">
-      <th mat-header-cell *matHeaderCellDef>Item</th>
-      <td mat-cell *matCellDef="let element">
-        <img
-       
-        src="https://images.unsplash.com/photo-1618424181497-157f25b6ddd5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wJTIwY29tcHV0ZXJ8ZW58MHx8MHx8&w=1000&q=80"
-        alt="Photo of a laptop"
-      />
-      </td>
-    </ng-container>
+        <!-- Qty Column -->
+        <ng-container style="text-align: center" matColumnDef="Quantity">
+          <th mat-header-cell *matHeaderCellDef>Quantity</th>
+          <td mat-cell *matCellDef="let element; let i = index">
+            <div class="buttontd">
+              <button
+                mat-button
+                class="addtocartbtn"
+                (click)="decrementProduct(element)"
+              >
+                <span class="material-icons icons">remove</span>
+              </button>
+              <h3>{{ element.items }}</h3>
+              <button
+                mat-button
+                class="addtocartbtn"
+                (click)="incrementProduct(element)"
+              >
+                <span class="material-icons icons">add</span>
+              </button>
+            </div>
+          </td>
+        </ng-container>
 
-    <!-- Qty Column -->
-    <ng-container style="text-align: center;" matColumnDef="Quantity">
-      <th mat-header-cell *matHeaderCellDef>Quantity</th>
-      <td  mat-cell *matCellDef="let element; let i = index">
-        <div class="buttontd">
-        <button
-          mat-button
-          class="addtocartbtn"
-          (click)="decrementProduct(element)"
-        >
-        <span class="material-icons icons">remove</span>
-        </button>
-        <h3>{{ element.items }}</h3>
-        <button
-          mat-button
-          class="addtocartbtn"
-          (click)="incrementProduct(element)"
-        >
-         <span class="material-icons icons">add</span>
-        </button>
-      </div>
-     
-      </td>
-    </ng-container>
+        <!-- Price Column -->
+        <ng-container matColumnDef="symbol">
+          <th mat-header-cell *matHeaderCellDef>Price</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.price * element.items }}
+          </td>
+        </ng-container>
 
-    <!-- Price Column -->
-    <ng-container matColumnDef="symbol">
-      <th mat-header-cell *matHeaderCellDef>Price</th>
-      <td mat-cell *matCellDef="let element">{{ element.price*element.items }}</td>
-    </ng-container>
-
-    <!-- Price Column -->
-    <ng-container matColumnDef="DisCart">
-      <th mat-header-cell *matHeaderCellDef>Remove Product</th>
-      <td mat-cell *matCellDef="let element; let i=index">
-        <button class="iconbtn" (click)="deleteThisItem(i)">
-        <mat-icon style="color: red;" >delete</mat-icon>
-        </button>
-      </td>
-    
-    </ng-container>
- 
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-   
-
-  </table>
+        <!-- Price Column -->
+        <ng-container matColumnDef="DisCart">
+          <th mat-header-cell *matHeaderCellDef>Remove Product</th>
+          <td mat-cell *matCellDef="let element; let i = index">
+            <button class="iconbtn" (click)="deleteThisItem(i)">
+              <mat-icon style="color: red">delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
   </div>
-</div>        
 </mat-dialog-content>
-<mat-dialog-actions >
+<mat-dialog-actions>
   <button class="btnchekout" mat-button mat-dialog-close>
     <mat-icon>arrow_left_alt</mat-icon> Continue Shopping
-    
   </button>
   <div>
-    <h3>Total Amount: {{total}}
-    </h3>
+    <h3>Total Amount: {{ total }}</h3>
   </div>
   <button
-  class="btnchekout"
+    class="btnchekout"
     mat-button
     routerLink="/paymentMethod"
     [mat-dialog-close]="true"

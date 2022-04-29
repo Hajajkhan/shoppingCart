@@ -17,20 +17,22 @@ export class SnapshotDetailComponent implements OnInit {
   arrayOfProducts: any[] = [];
   snapShotedItem: any = '';
   prodcutDetail: any[] = [];
-  reviewsArray:any;
+  reviewsArray: any;
   resultsLength = 0;
   isLoadingResults = true;
   isRateLimitReached = false;
 
-
   displayedColumns: string[] = ['name', 'review', 'rating'];
-  
 
   $product: Observable<any> = this.store.select((state: any) => {
     return state.products.products;
   });
 
-  constructor(private store: Store, private activatedroute: ActivatedRoute, private service:KifayatService) {}
+  constructor(
+    private store: Store,
+    private activatedroute: ActivatedRoute,
+    private service: KifayatService
+  ) {}
 
   ngOnInit(): void {
     this.productId = this.activatedroute.snapshot.params['id'];
@@ -45,17 +47,13 @@ export class SnapshotDetailComponent implements OnInit {
         console.log('sssd', this.prodcutDetail);
       }
     });
-   
+
     console.log(this.snapShotedItem);
   }
-  addReview(data: any) {
-    this.comment.push(data);
+  addReview() {
     this.review = '';
     this.showreview = true;
     this.reviewsArray = this.service.reviews;
-    console.log("ReviewsSnap", this.reviewsArray);
-
+    console.log('ReviewsSnap', this.reviewsArray);
   }
- 
- 
 }

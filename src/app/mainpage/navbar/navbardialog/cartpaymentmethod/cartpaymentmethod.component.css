@@ -64,20 +64,23 @@ form {
     background-color: white;
     color: black;
 }
-.shippingDetail{
+
+.shippingDetail {
     display: flex;
     flex-direction: row;
-    justify-content:space-between ;
+    justify-content: space-between;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     padding: 20px;
     margin-top: 10px;
 }
-.personDetail{
+
+.personDetail {
     border: 1px solid;
     padding: 10px;
- 
+
 }
-.productDetail{
+
+.productDetail {
     border: 1px solid;
     padding: 10px;
 }
