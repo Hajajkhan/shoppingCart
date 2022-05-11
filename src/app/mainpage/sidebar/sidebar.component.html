@@ -5,7 +5,7 @@
         <mat-selection-list #shoes [multiple]="false">
           <mat-list-option
             class="list"
-            *ngFor="let data of array"
+            *ngFor="let data of categories"
             (click)="onSelectCategory(data.id)"
             [value]="data.name"
           >
