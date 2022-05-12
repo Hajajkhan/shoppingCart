@@ -27,9 +27,15 @@ import { CartpaymentmethodComponent } from './mainpage/navbar/navbardialog/cartp
 import { SidebarComponent } from './mainpage/sidebar/sidebar.component';
 import { EffectsModule } from '@ngrx/effects';
 import { ProductEffects } from './mainpage/sidebar/store/kifayat.effects';
-import { productReducer } from './mainpage/sidebar/store/kifayat.reducer';
+import {
+  productReducer,
+  counterReducer,
+  cartReducer,
+  reviewsReducer,
+} from './mainpage/sidebar/store/kifayat.reducer';
 import { SnapshotDetailComponent } from './snapshot-detail/snapshot-detail.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -60,9 +66,22 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     MatListModule,
     MatCardModule,
     AppRoutingModule,
-    StoreModule.forRoot({ products: productReducer }, {}),
+    StoreModule.forRoot(
+      {
+        products: productReducer,
+        counter: counterReducer,
+        cart: cartReducer,
+        reviews: reviewsReducer,
+      },
+      {}
+    ),
     BrowserAnimationsModule,
     EffectsModule.forRoot([ProductEffects]),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: false, 
+      autoPause: true,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],

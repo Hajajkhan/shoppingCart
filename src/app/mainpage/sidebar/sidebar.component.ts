@@ -1,12 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-
+import { MatDialog } from '@angular/material/dialog';
+import { NavbardialogComponent } from '../navbar/navbardialog/navbardialog.component';
 import { Store } from '@ngrx/store';
 import {
   FixedSizeVirtualScrollStrategy,
   VIRTUAL_SCROLL_STRATEGY,
 } from '@angular/cdk/scrolling';
 import { Observable } from 'rxjs';
-import { loadProducts } from './store/kifayat.actions';
+import {
+  loadProducts,
+  increment,
+  loadProductsByCategory,
+  loadCart,
+  loadReviews,
+} from './store/kifayat.actions';
 import { Categories } from './store/data.state';
 import { KifayatService } from 'src/app/kifayat.service';
 
@@ -25,42 +32,43 @@ export class CustomVirtualScrollStrategy extends FixedSizeVirtualScrollStrategy 
   ],
 })
 export class SidebarComponent implements OnInit {
-  getId: any;
-  array: any[] = Categories;
+  categories: any[] = Categories;
   arrayOfProducts: any[] = [];
-  searchedArray: any[] = [];
-
   cartArray: any[] = [];
 
-  $product: Observable<any> = this.store.select((state: any) => {
+  cartItems$: Observable<any> = this.store.select((state) => {
+    return state.cart;
+  });
+  $product = this.store.select((state: any) => {
     return state.products.products;
   });
 
-  constructor(private store: Store, private service: KifayatService) {}
+  constructor(
+    private store: Store<{ counter: Number; cart: any }>,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
-    this.store.dispatch(loadProducts(null));
-    this.$product.subscribe((data) => {
+    this.store.dispatch(loadProducts());
+    this.$product.subscribe((data: any) => {
       this.arrayOfProducts = data;
+      this.$product.subscribe();
     });
+    this.cartItems$.subscribe();
   }
 
   onSelectCategory(data: any) {
-    this.store.dispatch(loadProducts({ data: data }));
+    this.store.dispatch(loadProductsByCategory({ data: data }));
   }
 
   addToCart(data: any) {
-    console.log('gettingData', data);
-    this.cartArray.push(data);
-    this.service.getDataForSharingToComponents(
-      this.cartArray,
-      this.arrayOfProducts
-    );
-    this.searchedArray = this.service.serachedArray;
-    console.log('Search', this.searchedArray);
+    this.store.dispatch(increment());
+    this.store.dispatch(loadCart({ cart: data }));
+    const dialogRef = this.dialog.open(NavbardialogComponent);
+    dialogRef.afterClosed().subscribe((result) => {});
   }
 
   gettingReviewsOfProduct(id: any) {
-    this.service.gettingReviews(id);
+    this.store.dispatch(loadReviews({ id: id }));
   }
 }
