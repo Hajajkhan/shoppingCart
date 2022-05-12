@@ -24,6 +24,6 @@
     (click)="openDialog()"
   >
     <mat-icon title="Cart">add_shopping_cart</mat-icon>
-    <sup>{{ products.length }}</sup>
+    <sup>{{ count$ | async }}</sup>
   </button>
 </mat-toolbar>

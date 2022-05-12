@@ -33,17 +33,7 @@
         </mat-card>
       </div>
       <div class="productReview">
-        <textarea
-          class="example-full-width"
-          placeholder="Product Reviews"
-          [(ngModel)]="review"
-          name="input"
-          #input="ngModel"
-        ></textarea>
-        <button mat-button class="btn" (click)="addReview(input.value)">
-          Check Reviews
-        </button>
-        <div class="tabledata" *ngIf="showreview">
+        <div class="tabledata">
           <div class="star">
             <span class="material-icons">star_rate</span>
             <h1 class="reviewheading">Product Review</h1>
@@ -52,9 +42,8 @@
         <div class="example-container">
           <div class="example-table-container">
             <table
-              *ngIf="showreview"
               mat-table
-              [dataSource]="reviewsArray"
+              [dataSource]="$reviews | async"
               class="example-table"
               matSort
               matSortActive="created"

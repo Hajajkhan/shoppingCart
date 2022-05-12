@@ -1,4 +1,6 @@
-import { Component, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { KifayatService } from 'src/app/kifayat.service';
 
 export interface PeriodicElement {
@@ -14,12 +16,13 @@ export interface PeriodicElement {
   styleUrls: ['./navbardialog.component.css'],
 })
 export class NavbardialogComponent implements OnInit {
-  array: any[] = [];
-  arrayOfProducts: any[] = [];
-  updatedItems: any[] = [];
-  totalPriceOfProduct: any;
-  count: any;
+  cartArray: any[] = [];
+  cartArrayUpdated: any[] = [];
   total: any;
+
+  cartArray$: Observable<any> = this.store.select((state) => {
+    return (this.cartArray = state.cart);
+  });
 
   displayedColumns: string[] = [
     'position',
@@ -30,51 +33,40 @@ export class NavbardialogComponent implements OnInit {
     'DisCart',
   ];
 
-  constructor(private service: KifayatService) {}
+  constructor(private store: Store<{ cart: any }>) {}
 
   ngOnInit(): void {
-    this.array = this.service.array;
-    console.log('dialo', this.array);
-    let productObject;
-    this.array.forEach((data) => {
+    this.cartArray$.subscribe();
+    this.cartArray.forEach((data) => {
+      let productObject;
       productObject = {
-        name: data.name,
+        name: data.cart.name,
         items: 1,
-        price: Math.round(data.discounted_price),
-        id: data.product_id,
-        description: data.description,
+        price: Math.round(data.cart.discounted_price),
+        id: data.cart.product_id,
+        description: data.cart.description,
       };
-      this.arrayOfProducts.push(productObject);
+      this.cartArrayUpdated.push(productObject);
     });
-    this.count = this.arrayOfProducts.length;
-    this.total = this.arrayOfProducts.reduce((sum: any, item: any) => {
+    this.total = this.cartArrayUpdated.reduce((sum: any, item: any) => {
       return sum + item.price * item.items;
     }, 0);
   }
 
   incrementProduct(data: any) {
+    console.log('k', this.cartArrayUpdated);
     data.items = data.items + 1;
-    this.total = this.arrayOfProducts.reduce((sum: any, item: any) => {
+    this.total = this.cartArrayUpdated.reduce((sum: any, item: any) => {
       return sum + item.price * item.items;
     }, 0);
-    console.log('CC', this.count);
   }
 
   decrementProduct(data: any) {
     if (data.items != 1) {
       data.items = data.items - 1;
-      this.total = this.arrayOfProducts.reduce((sum: any, item: any) => {
+      this.total = this.cartArrayUpdated.reduce((sum: any, item: any) => {
         return sum + item.price * item.items;
       }, 0);
     }
-  }
-  deleteThisItem(index: any) {
-    console.log('index', index);
-    this.arrayOfProducts;
-    console.log('indexArray', this.arrayOfProducts);
-  }
-
-  givingTheCountofProducts() {
-    this.service.gettingCount(this.count);
   }
 }

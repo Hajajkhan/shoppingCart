@@ -15,15 +15,6 @@ export class CartpaymentmethodComponent implements OnInit {
 
   selectedstatement = true;
 
-  firstName: any = '';
-  personfirstName: any = '';
-  lastName: any = '';
-  email: string = '';
-  address: any = '';
-  phoneNumber: any = '';
-  streetAddress: any = '';
-  pesronNumber: any = '';
-
   methods: any[] = [
     'MasterCard',
     'VisaCard',
@@ -58,9 +49,5 @@ export class CartpaymentmethodComponent implements OnInit {
   }
   displaySelection() {
     this.selectedstatement = false;
-  }
-  addContactDetail() {}
-  console() {
-    console.log('name');
   }
 }
